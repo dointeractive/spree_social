@@ -23,7 +23,7 @@ class Spree::OmniauthCallbacksController < Devise::OmniauthCallbacksController
           elsif spree_current_user
             spree_current_user.apply_omniauth(auth_hash)
             if spree_current_user.save
-              render 'add_success'
+              render 'success'
             else
               render 'failure'
             end
