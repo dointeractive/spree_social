@@ -1,0 +1,8 @@
+<script type="text/javascript">
+  if(window.opener){
+    window.opener.showAlert('<%= Spree.t(:save_data_failure) %>', 'error');
+    window.close();
+  }else{
+    window.location = '<%= spree_current_user ? account_url : login_url %>';
+  }
+</script>

@@ -1,0 +1,16 @@
+<script type="text/javascript">
+  var target_window = window.opener || window;
+  var url = null;
+  var pathname = target_window.document.location.pathname;
+  if(pathname.indexOf('/signup') == 0 || pathname.indexOf('/login') == 0 || pathname.indexOf('/user') == 0){
+    url = '<%= @url %>';
+  }
+  if(window.opener){
+    window.close();
+  }
+  if(url){
+    target_window.location = url;
+  }else{
+    target_window.location.reload();
+  }
+</script>
