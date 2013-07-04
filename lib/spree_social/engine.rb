@@ -1,9 +1,9 @@
 module SpreeSocial
   OAUTH_PROVIDERS = [
     ["Facebook", "facebook"],
-    ["Twitter", "twitter"],
-    ["Github", "github"],
-    ["Google", "google_oauth2"],
+    # ["Twitter", "twitter"],
+    # ["Github", "github"],
+    # ["Google", "google_oauth2"],
     ["VKontakte", "vkontakte"]
   ]
 
