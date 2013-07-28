@@ -9,8 +9,8 @@ Spree.user_class.class_eval do
     if email.blank?
       self.email = omniauth['info']['email'].presence || "#{self.class.generate_token(:persistence_token)}@temp.temp"
     end
-    self.first_name = omniauth['info']['first_name'] if first_name.blank? && omniauth['info']['first_name'].present?
-    self.last_name = omniauth['info']['last_name'] if last_name.blank? && omniauth['info']['last_name'].present?
+    self.firstname = omniauth['info']['first_name'] if firstname.blank? && omniauth['info']['first_name'].present?
+    self.lastname = omniauth['info']['last_name'] if lastname.blank? && omniauth['info']['last_name'].present?
     if !avatar.exists?
       image = omniauth['extra']['raw_info']['photo_big'].presence || omniauth['info']['image']
       self.avatar_remote_url = image if image.present?
