@@ -20,10 +20,6 @@ Spree.user_class.class_eval do
     user_authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
   end
 
-  def password_required?
-    (user_authentications.empty? || !password.blank?) && super
-  end
-
   def avatar_remote_url=(url)
     begin
       self.avatar = URI.parse(url)

@@ -30,6 +30,11 @@ class Spree::OmniauthCallbacksController < Devise::OmniauthCallbacksController
           else
             user = Spree::User.find_by_email(auth_hash['info']['email']) || Spree::User.new
             user.apply_omniauth(auth_hash)
+            if user.new_record?
+              password = SecureRandom.hex(24)
+              user.password = password
+              user.password_confirmation = password
+            end
             if user.save
               sign_in :spree_user, user
               @url = after_sign_in_url
