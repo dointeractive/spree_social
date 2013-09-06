@@ -2,10 +2,12 @@ Spree.user_class.class_eval do
   has_many :user_authentications, :dependent => :destroy
 
   attr_reader :avatar_remote_url
+  attr_accessor :omniauth_save
 
   devise :omniauthable
 
   def apply_omniauth(omniauth)
+    self.omniauth_save = true
     if email.blank?
       self.email = omniauth['info']['email'].presence || "#{self.class.generate_token(:persistence_token)}@temp.temp"
     end
